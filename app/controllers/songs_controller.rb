@@ -29,7 +29,7 @@ class SongsController < ApplicationController
   
   def update
     @song = Song.find(params[:id])
-    @artist = Artist.find(params[:id])
+    @artist = Artist.find(params[:song][:artist_id])
     @song.update(song_params(:name, :genre_id, :artist_id))
     @song.artist = @artist
     @song.genre = @genre
