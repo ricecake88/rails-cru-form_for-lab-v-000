@@ -16,6 +16,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params(:name, :genre_id, :artist_id))
     @artist = Artist.find(params[:song][:artist_id])
     @genre = Genre.find(params[:song][:genre_id])
+    binding.pry
     @song.artist = @artist
     @song.genre = @genre
     @artist.songs << @song    
