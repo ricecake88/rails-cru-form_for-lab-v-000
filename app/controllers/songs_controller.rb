@@ -14,8 +14,8 @@ class SongsController < ApplicationController
   
   def create
     @song = Song.new(song_params(:name, :genre_id, :artist_id))
-    @artist = Artist.find(song_params(:artist_id))
-    @genre = Genre.find(song_params(:artist_id))
+    @artist = Artist.find(params[:song][:artist_id])
+    @genre = Genre.find(params[:song][:genre_id])
     @song.artist = @artist
     @song.genre = @genre
     @artist.songs << @song    
